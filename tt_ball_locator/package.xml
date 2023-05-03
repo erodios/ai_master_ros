@@ -7,6 +7,8 @@
   <maintainer email="todo@todo.com">TODO</maintainer>
   <license>Apache License 2.0</license>
 
+  <exec_depend>ros2launch</exec_depend>
+  
   <buildtool_depend>ament_cmake</buildtool_depend>
   <buildtool_depend>ament_cmake_python</buildtool_depend>
 
