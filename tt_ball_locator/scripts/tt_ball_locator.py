@@ -45,19 +45,6 @@ class BallLocatorNode(Node):
         
         return super().on_activate(state)
 
-    def on_deactivate(self):
-        self.get_logger().info('Deactivating...')
-        #return super().on_deactivate()
-
-    def on_cleanup(self):
-        self.get_logger().info('Cleaning up...')
-        #return TransitionCallbackReturn.SUCCESS
-
-    def on_shutdown(self):
-        self.get_logger().info('Shutting down...')
-        #return TransitionCallbackReturn.SUCCESS
-        self.destroy_node()
-
     def camera_callback(self, msg, points):
         # Create a bridge between the ROS Image msg and OpenCV
         cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='passthrough')
@@ -117,7 +104,6 @@ class BallLocatorNode(Node):
         transform.transform.rotation.w = 1.0
         broadcaster.sendTransform(transform)
 
-        cv2.waitKey(1)
 
 def main(args=None):
     rclpy.init(args=args)
